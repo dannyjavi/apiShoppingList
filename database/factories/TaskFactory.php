@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Task;
 use App\Models\User;
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class TaskFactory extends Factory
@@ -27,7 +28,7 @@ class TaskFactory extends Factory
             'title' => $this->faker->catchPhrase(),
             'slug' => 'probando-los-tests',
             'description' => $this->faker->text(100),
-            'status' => $this->faker->randomElement(['completed','pending']),
+            'status' => $this->faker->randomElement(['done','pending']),
             'created_by' => $this->faker->randomNumber(2),
             'user_id' => User::factory()
         ];

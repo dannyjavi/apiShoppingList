@@ -18,8 +18,8 @@ class CreateTasksTable extends Migration
             $table->uuid('uuid_task');
             $table->string('title');
             $table->string('slug');
-            $table->string('description');
-            $table->enum('status', ['completed','pending']);
+            $table->string('description')->nullable();
+            $table->enum('status', ['done','pending']);
             $table->unsignedTinyInteger('created_by');
             $table->foreignId('user_id')->constrained();
             $table->timestamps();

@@ -13,7 +13,7 @@ class TaskController extends Controller
 {
     public function index()
     {
-        $tasks = Task::applySorts(request('sort'))->get();
+        $tasks = Task::applySorts(request('sort'))->latest()->get();
 
         return TaskCollection::make($tasks);
     }
@@ -22,7 +22,7 @@ class TaskController extends Controller
     {
         $task = Task::create($request->all());
 
-        return response()->json($task, 201);
+        return TaskResource::make($task);
     }
 
     public function show(Task $task)
